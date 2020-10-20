@@ -8,18 +8,23 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
-    public function test_count_given1_shouldReturn1() {
-        $fizzBuzz = new FizzBuzz();
 
-        $actual = $fizzBuzz->count(1);
+    private $fizzBuzz;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->fizzBuzz = new FizzBuzz();
+    }
+
+    public function test_count_given1_shouldReturn1() {
+        $actual = $this->fizzBuzz->count(1);
 
         $this->assertEquals("1", $actual);
     }
 
     public function test_count_given2_shouldReturn2() {
-        $fizzBuzz = new FizzBuzz();
-
-        $actual = $fizzBuzz->count(2);
+        $actual = $this->fizzBuzz->count(2);
 
         $this->assertEquals("2", $actual);
     }
